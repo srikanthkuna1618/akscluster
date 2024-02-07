@@ -19,6 +19,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-mana
 
 sudo snap install kubectl --classic
 
-kubectl version --short
+kubectl version
+
 
 kubectl get nodes
