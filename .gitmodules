@@ -1,0 +1,3 @@
+[submodule "akscluster"]
+	path = akscluster
+	url = https://github.com/srikanthkuna1618/akscluster.git
