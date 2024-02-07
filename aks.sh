@@ -1,32 +1,8 @@
 #!/bin/bash
 
-# Check if Azure CLI is already installed
-if command -v az &> /dev/null; then
-    echo "Azure CLI is already installed."
-    exit 0
-fi
-
-# Add Microsoft signing key
-curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
-    gpg --dearmor | \
-    sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
-
-# Add Azure CLI repository
-AZ_REPO=$(lsb_release -cs)
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-    sudo tee /etc/apt/sources.list.d/azure-cli.list
-
 # Update package index and install Azure CLI
 sudo apt-get update
 sudo apt-get install -y azure-cli
-
-# Verify installation
-if command -v az &> /dev/null; then
-    echo "Azure CLI has been successfully installed."
-else
-    echo "Failed to install Azure CLI."
-fi
-git 
 
 # Variables
 RESOURCE_GROUP_NAME="myResourcegroup"
